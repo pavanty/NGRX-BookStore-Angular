@@ -1,0 +1,55 @@
+<div class="bookmarks">
+  <h3>Book Marks</h3>
+</div>
+<div class="container-fluid">
+  <div class="div-main">
+    <div [routerLink]="['/booklist']" class="button"><button class="  btn btn-warning">Book Lists</button>
+    </div>
+  </div>
+  <div *ngIf="
+  ( filterbytitle)?.length >0 else noData " class="row details-page">
+    <ng-container *ngFor="let bookmarklist of filterbytitle | paginate
+      : {
+          itemsPerPage: 9,
+          currentPage: page,
+          totalitems: totallength
+        }">
+      <div class="card shadow col-sm-6 col-md-6 col-lg-3">
+        <div>
+          <img class="shadow" src="{{ bookmarklist?.image_url }}" alt="" />
+          <h5 style="
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 100ch;
+              " class="card-title">
+            {{ bookmarklist?.title }}
+          </h5>
+          <div class="authorbookmark">
+            <p style="
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  max-width: 100ch;
+                " class="card-text">
+              Author: {{ bookmarklist?.authors }}
+            </p>
+            <a class="deletecrossmark" (click)="onclickdeletebyid(bookmarklist?.id)">
+              &#10007;</a>
+          </div>
+
+          <div class="rating">
+            <ngx-stars [color]="'#DEC20B'" class="rating-star" [readonly]="true" [maxStars]="5"
+              [initialStars]="bookmarklist?.rating"></ngx-stars>
+            <p>{{ bookmarklist?.rating }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>
+<ng-template #noData>
+  <div class="no-data">No Books Found</div>
+</ng-template>
+<ToastContainer></ToastContainer>

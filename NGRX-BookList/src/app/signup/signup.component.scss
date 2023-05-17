@@ -1,0 +1,77 @@
+.form-details {
+  width: 40%;
+  padding: 30px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #eeeeee;
+  padding-bottom: 80px;
+  margin-bottom: 40px;
+}
+
+label {
+  font-weight: bold;
+  text-align: left;
+  padding-top: 5px;
+  margin-left: 10px;
+}
+
+input {
+  padding: 10px;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-weight: bolder;
+  font-size: 20px;
+  border: 1px solid black;
+}
+
+button {
+  background-color: rgb(135, 135, 197);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+small {
+  font-weight: bold;
+}
+
+h4,
+h3,
+h2 {
+  margin-bottom: 10px;
+  font-family: cursive;
+  text-align: center;
+}
+
+.successmessage {
+  color: green;
+}
+
+.formpage {
+  display: flex;
+  margin-top: 40px;
+  font-family: cursive;
+  text-align: center;
+}
+
+.buttonmain {
+  background-color: blue;
+  margin-right: 30px;
+}
+
+.mainbutton {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+.image-url {
+  font-size: 17px;
+
+}

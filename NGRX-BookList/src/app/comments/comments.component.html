@@ -1,0 +1,42 @@
+<div *ngIf="loginusername">
+  <form [formGroup]="commentmain" (ngSubmit)="submitform();">
+    <div class="textdescription">
+      <h2>GIVE FEEDBACK</h2>
+    </div>
+    <div class="rating-slider">
+      <h4 class="rating-main">RATING</h4>
+      <ngx-star-rating class="star" formControlName="rating" [id]="'rating'"></ngx-star-rating>
+    </div>
+    <textarea class="form-control textarea" formControlName="commentinfo"
+      placeholder="write the review about the products">
+        </textarea>
+
+    <button type="submit" class="btn btn-success reviewbutton">
+      submit</button>
+  </form>
+</div>
+<h2 class="comments">COMMENTS</h2>
+<div class="review-main">
+  <div class="shadow round pb-3 classdetails" *ngFor="let commentdetail of filtercomments">
+    <div class="rm">
+      <div>
+        <h5>{{commentdetail?.name |uppercase}}</h5>
+      </div>
+
+      <div *ngIf="checkusers(commentdetail?.name)">
+        <fa-icon class="deletecrossmark" (click)="onclickdeletebyid(commentdetail?.id)" [icon]="faTrash"></fa-icon>
+
+
+        <fa-icon class="editcrossmark" [icon]="faPenSquare" [routerLink]="['/Updatecomment',commentdetail?.id]">
+        </fa-icon>
+
+
+      </div>
+    </div>
+    <div class="rating">
+      <ngx-stars class="rating-star" [readonly]="true" [maxStars]="5" [initialStars]="commentdetail.rating"></ngx-stars>
+      <h6>{{ commentdetail?.rating }}</h6>
+    </div>
+    <h5 class="comment-styling">{{commentdetail?.commentinfo}}</h5>
+  </div>
+  <ToastContainer></ToastContainer>

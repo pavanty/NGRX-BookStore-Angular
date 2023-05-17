@@ -1,0 +1,23 @@
+<div class="mainbutton">
+  <button [routerLink]="['/booklist']" class="buttonmain">Book Lists</button>
+</div>
+<h2>Login</h2>
+<div class="form-details shadow">
+  <form [formGroup]="loginpost" (ngSubmit)=" onSubmit()" enctype="multipart/form-data">
+    <div>
+      <label>User Name</label>
+      <input class="form-control" type="text" formControlName="username" required />
+      <small *ngIf="username?.invalid && username?.touched" class="text-danger">Please fill the field</small>
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="text" class="form-control" formControlName="password" required />
+      <small *ngIf="password?.invalid && password?.touched" class="text-danger">Please fill the field</small>
+    </div>
+
+    <button class="buttonsubmit" [disabled]="loginpost.invalid" class="submitbutton" type="submit">
+      Submit
+    </button>
+  </form>
+</div>
+<ToastContainer></ToastContainer>

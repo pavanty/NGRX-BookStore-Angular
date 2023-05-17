@@ -1,0 +1,43 @@
+<div class="mainbutton">
+  <button [routerLink]="['/booklist']" class="buttonmain">Book Lists</button>
+</div>
+<h2>Add NewBook</h2>
+<h2 class="successmessage">{{ successmessage }}</h2>
+<div class="form-details shadow">
+  <form [formGroup]="bookpost" (ngSubmit)="submitform()" enctype="multipart/form-data">
+    <div>
+      <label>Title</label>
+      <input class="form-control" type="text" formControlName="title" required />
+      <small *ngIf="title?.invalid && title?.touched" class="text-danger">Please fill the field</small>
+    </div>
+    <div>
+      <label>Author</label>
+      <input type="text" class="form-control" formControlName="authors" required />
+      <small *ngIf="authors?.invalid && authors?.touched" class="text-danger">Please fill the field</small>
+    </div>
+    <div>
+      <label>Description</label>
+      <input type="text" class="form-control" formControlName="description" required />
+      <small *ngIf="description?.invalid && description?.touched" class="text-danger">Please fill the field</small>
+    </div>
+    <div>
+      <label>Rating out of 5</label>
+      <input type="number" class="form-control" formControlName="rating" min="0" max="5" required />
+      <small *ngIf="rating?.invalid && rating?.touched" class="text-danger">Please fill the field</small>
+    </div>
+    <div>
+      <label>Image</label>
+      <input type="text" formControlName="image_url" class="form-control image-url" required />
+      <small *ngIf="image_url?.invalid && image_url?.touched" class="text-danger">Please upload in jpg or png
+        format and in web url format</small>
+    </div>
+    <div>
+      <label>Book Cost</label>
+      <input type="number" class="form-control" formControlName="cost" required />
+      <small *ngIf="cost?.invalid && cost?.touched" class="text-danger">Please fill the field</small>
+    </div>
+    <button class="buttonsubmit" [disabled]="bookpost.invalid" class="submitbutton" type="submit">
+      Submit
+    </button>
+  </form>
+</div>

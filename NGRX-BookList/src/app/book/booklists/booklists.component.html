@@ -1,0 +1,72 @@
+<div>
+  <div class="bookstore">
+    <h2>BookStore</h2>
+  </div>
+  <div class="row search-main ">
+    <div class="col-12">
+      <label for="">Search</label>
+      <input class="search-input" type="text" [(ngModel)]="searchname" (ngModelChange)="updateFilter()" />
+      <div class="btn-responsive">
+        <button *ngIf="regtoken" [routerLink]="'/BookForm'" class="btn btn-success btn-responsive">Add Book</button>
+        <button (click)="gotobookmarklist()" class="btn btn-primary btn-responsive">BooksMarks</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="(booklists$ | async | filter: searchname: 'title')?.length > 0; else noData">
+
+    <div class="container-fluid">
+      <div class="row details-page">
+        <ng-container *ngFor="
+            let book of  booklists$| async | paginate
+            : {
+                itemsPerPage: 9,
+                currentPage: page,
+                totalitems: totallength
+              }
+          | filter : searchname : 'title'
+      ">
+          <div class="card shadow col-sm-6 col-md-6 col-lg-3">
+            <div>
+
+              <img (change)="onFileSelected($event)" (click)="gotodetailspage(book.id)" class="shadow"
+                src="{{ book?.image_url }}" alt="" />
+              <h5 style="
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  max-width: 100ch;
+                " class="card-title">
+                {{ book.title }}
+              </h5>
+              <div class="authorbookmark">
+                <p style="
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100ch;
+    " class="card-text">
+                  Author: {{ book?.authors }}
+                </p>
+
+                <a *ngIf="regtoken" (click)="bookmarksbook(book)" class="bookmark">&#x1F516;</a>
+              </div>
+              <div>
+                <p>$ {{book?.cost}}</p>
+              </div>
+
+              <div class="rating">
+                <ngx-stars [color]="'#DEC20B'" class="rating-star" [readonly]="true" [maxStars]="5"
+                  [initialStars]="book?.rating"></ngx-stars>
+                <p>{{ book?.rating }}</p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>
+<ng-template #noData>
+  <div class="no-data">No Item Found </div>
+</ng-template>

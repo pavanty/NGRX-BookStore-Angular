@@ -1,0 +1,119 @@
+.classdetails {
+  padding: 30px;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.review-main {
+  margin: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+
+}
+
+.textdescription {
+
+  margin-top: 50px;
+
+  margin-left: 10px;
+}
+
+.reviewbutton {
+  margin-left: 10px;
+  margin-top: 10px;
+
+}
+
+h5 {
+  padding-bottom: 20px;
+  line-height: 1.5px;
+}
+
+.rating {
+  display: flex;
+
+
+}
+
+.rating-slider {
+  display: flex;
+  margin-left: 10px;
+
+
+}
+
+.rating-main {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.rating-value {
+  margin-left: 10px;
+}
+
+.rm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deletecrossmark {
+  color: red;
+  font-size: 23px;
+
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.editcrossmark {
+
+  font-size: 23px;
+  color: green;
+  cursor: pointer;
+}
+
+.comments {
+  margin: 30px;
+}
+
+@media only screen and (max-width: 850px) {
+  .rating-slider {
+    display: inline-block;
+  }
+
+  ::ng-deep .star {
+
+    font-size: 20px !important;
+    display: flex;
+
+  }
+
+  textarea {
+    width: 90%;
+    margin-left: 10px;
+  }
+}
+
+textarea {
+  width: 60%;
+  margin-left: 10px;
+}
+
+.comment-styling {
+  margin-top: 20px;
+}
+
+h6 {
+  margin-left: 7px;
+}
