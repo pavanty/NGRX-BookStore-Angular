@@ -1,8 +1,8 @@
-## Code Written In Angular(NGRX-DATA)
-### Steps to run the application
+### Code Written In Angular(NGRX-DATA)
+#### Steps to run the application
 clone the github repository
 
-### Steps to run the code
+#### Steps to run the code
 npm install --force
 
 npx json-server --watch db.json
