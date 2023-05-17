@@ -1,4 +1,4 @@
-## Code written in Angular
+## Code written in Angular(NGRX-DATA)
 ### Steps to run the application
 clone the github repository
 
